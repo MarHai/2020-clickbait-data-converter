@@ -58,3 +58,13 @@ class ArticleRepository:
         self._stop_timer()
 
         return articles
+
+
+class PostRepository(ArticleRepository):
+    def __init__(self, database: str):
+        super().__init__(database)
+        self._table = 'facebook'
+        self._fields = ['id', 'page_name', 'country',
+                        'external_link', 'post_type',
+                        'headline', 'excerpt', 'publication_time',
+                        'likes', 'comments', 'shares', 'loves', 'wows', 'hahas', 'sads', 'angrys']
