@@ -1,4 +1,4 @@
-from importer.database import ArticleRepository, PostRepository
+from importer.database import ArticleRepository
 from exporter.file import DelimitedFile
 
 
@@ -10,7 +10,7 @@ print('Collecting countries ...')
 countries = articles.get_countries()
 print('Collected %d countries in %d seconds' % (len(countries), articles.process_time_in_sec))
 
-file = 'countries.csv'
+file = 'articles_countries.csv'
 print('Writing %s' % file)
 csv = DelimitedFile(file)
 csv.write_row(('country',))
