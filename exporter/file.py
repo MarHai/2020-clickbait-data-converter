@@ -13,7 +13,7 @@ class DelimitedFile:
     def write_row(self, row: tuple):
         self._writer.writerow(row)
 
-    def write_rows(self, rows: list):
+    def write_rows(self, rows: List[tuple]):
         self._writer.writerows(rows)
 
     def __del__(self):
