@@ -36,9 +36,10 @@ class ArticleRepository:
         if exclude is None:
             exclude = []
 
-        fields = self._fields
+        fields = self._fields.copy()
         for field in exclude:
-            fields.remove(field)
+            if field in fields:
+                fields.remove(field)
 
         return fields
 
@@ -53,9 +54,9 @@ class ArticleRepository:
 
     def get_data_from_country(self, country: str) -> List[tuple]:
         self._start_timer()
-        sql = 'SELECT %s FROM %s WHERE country = %s' % (', '.join(self.get_field_names(['country'])),
-                                                        self._table,
-                                                        country)
+        sql = 'SELECT %s FROM %s WHERE country = "%s"' % (', '.join(self.get_field_names(['country'])),
+                                                          self._table,
+                                                          country)
         articles = self._db.execute(sql).fetchall()
         self._stop_timer()
 
