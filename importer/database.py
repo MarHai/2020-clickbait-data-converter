@@ -53,8 +53,8 @@ class ArticleRepository:
 
     def get_data_from_country(self, country: str) -> List[tuple]:
         self._start_timer()
-        articles = self._db.execute('SELECT %s FROM %s WHERE country = ?' %
-                                    (', '.join(self.get_field_names(['country'])), self._table), country).fetchall()
+        sql = 'SELECT %s FROM %s WHERE country = ?' % (', '.join(self.get_field_names(['country'])), self._table)
+        articles = self._db.execute(sql, country).fetchall()
         self._stop_timer()
 
         return articles
