@@ -6,18 +6,8 @@ database = '/home/kobi/news_web_app/flaskblog/site.db'
 print('Reading %s' % database)
 articles = ArticleRepository(database)
 
-print('Collecting countries ...')
-countries = articles.get_countries()
-print('Collected %d countries in %d seconds' % (len(countries), articles.process_time_in_sec))
-
-file = 'articles_countries.csv'
-print('Writing %s' % file)
-csv = DelimitedFile(file)
-csv.write_row(('country',))
-for country in countries:
-    csv.write_row((country,))
-
-for country in countries:
+for country in ['Australia', 'Canada', 'Ireland', 'New Zealand', 'United Kingdom',
+                'United States', 'United States Minor Outlying Islands']:
     print('Collecting articles for %s ...' % country)
     data = articles.get_data_from_country(country)
     print('Collected %d articles in %d seconds' % (len(data), articles.process_time_in_sec))
