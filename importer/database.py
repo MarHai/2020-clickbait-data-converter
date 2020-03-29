@@ -27,8 +27,8 @@ class ArticleRepository:
 
     def _prepare_pragma(self):
         self._db.execute('PRAGMA page_size = 4096')
-        self._db.execute('PRAGMA cache_size=10000')
-        self._db.execute('PRAGMA locking_mode=EXCLUSIVE')
+        self._db.execute('PRAGMA cache_size = 10000')
+        self._db.execute('PRAGMA locking_mode = EXCLUSIVE')
         self._db.execute('PRAGMA temp_store = MEMORY')
 
     def _start_timer(self):
