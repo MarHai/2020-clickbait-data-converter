@@ -12,6 +12,11 @@ class ArticleRepository:
         self._fields = ['id', 'publisher', 'country',
                         'link', 'headline', 'excerpt', 'likes', 'comments', 'shares', 'twitter']
 
+    def _get_table(self) -> str:
+        return self._table
+
+    name = property(_get_table)
+
     def _set_process_time_in_sec(self, seconds: float):
         self._process_time_in_sec = seconds
 
