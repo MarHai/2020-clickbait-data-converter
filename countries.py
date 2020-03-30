@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Extract lists of unique countries from the database for both articles and posts"""
+
 from importer.database import ArticleRepository, PostRepository
 from exporter.file import DelimitedFile
 

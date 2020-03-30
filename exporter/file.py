@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Write CSV and JSON-lines files"""
+
 import csv
 import json
 import datetime

@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
+"""Transform the database into huge country-specific CSVs"""
+
 from importer.database import ArticleRepository
 from exporter.file import DelimitedFile
-
 
 database = '/home/kobi/news_web_app/flaskblog/site.db'
 print('Reading %s' % database)

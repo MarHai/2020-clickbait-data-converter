@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Read CSV files"""
+
 import csv
 from typing import List
 

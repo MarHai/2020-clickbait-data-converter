@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Read SQlite database for articles and posts"""
+
 import sqlite3
 import time
 from typing import List
