@@ -21,6 +21,9 @@ class DelimitedFile:
 
     header = property(_get_header, _set_header)
 
+    def __iter__(self):
+        return self
+
     def __next__(self):
         return next(self._reader)
 
