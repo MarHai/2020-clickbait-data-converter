@@ -16,7 +16,8 @@ articles = []
 article_links = []
 post_ids = []
 
-for file_suffix in ['australia', 'canada', 'ireland', 'new-zealand', 'united-kingdom', 'united-states']:
+for file_suffix in ['australia', 'canada', 'ireland', 'new-zealand', 'united-kingdom', 'united-states',
+                    'united-states-minor-outlying-islands']:
     articles_file = 'articles_%s.csv' % file_suffix
     print('Collecting articles from %s ...' % articles_file)
     for article in DelimitedFile(articles_file):
