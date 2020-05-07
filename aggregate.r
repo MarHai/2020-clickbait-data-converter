@@ -34,9 +34,11 @@ for(country_code in countries) {
   articles_temp <-
     articles %>%
     filter(country == country_code)
-  articles_temp %>%
+  articles_temp <-
+    articles_temp %>%
     left_join(posts, by = 'link', suffix = c('.article', '.post')) %>%
-    filter(!is.na(post_id)) %>%
+    filter(!is.na(post_id))
+  articles_temp %>%
     mutate(
       id = str_glue('{article_id}_{post_id}'),
       postTimestamp = format(publication_time, '%a %b %d %H:%M:%S %z %Y'),
