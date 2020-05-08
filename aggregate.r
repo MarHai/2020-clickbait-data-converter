@@ -29,13 +29,15 @@ posts <-
 lct <- Sys.getlocale('LC_TIME')
 Sys.setlocale('LC_TIME', 'en_US.UTF-8')
 
-countries <- unique(articles %>% pull(country))
-for(country_code in countries) {
-  articles_temp <-
-    articles %>%
-    filter(country == country_code)
-  articles_temp <-
-    articles_temp %>%
+step <- 1000000
+num_rows <- nrow(articles)
+for(row in seq(1, num_rows, step)) {
+  last_row <- row + step - 1
+  if(last_row > num_rows) {
+    last_row <- num_rows
+  }
+  articles_temp <- articles[row:last_row,]
+  articles_temp %>%
     left_join(posts, by = 'link', suffix = c('.article', '.post')) %>%
     filter(!is.na(post_id))
   articles_temp %>%
