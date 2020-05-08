@@ -37,7 +37,8 @@ for(row in seq(1, num_rows, step)) {
     last_row <- num_rows
   }
   articles_temp <- articles[row:last_row,]
-  articles_temp %>%
+  articles_temp <-
+    articles_temp %>%
     left_join(posts, by = 'link', suffix = c('.article', '.post')) %>%
     filter(!is.na(post_id))
   articles_temp %>%
